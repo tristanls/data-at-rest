@@ -16,6 +16,10 @@ DataAtRest.aad = obj =>
                         .sort()
                         .reduce((result, property) =>
                         {
+                            if (typeof obj[property] == "object")
+                            {
+                                throw new TypeError("DataAtRest.aad() does not accept nested objects.");
+                            }
                             result[property] = obj[property];
                             return result;
                         },
