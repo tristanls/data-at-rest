@@ -10,7 +10,7 @@ DataAtRest.IV_LENGTH_IN_BYTES = 12; // 96 bits
 
 DataAtRest.aad = obj =>
 {
-    return Buffer.from(
+    return new Buffer(
                 JSON.stringify(
                     Object.keys(obj)
                         .sort()
@@ -34,9 +34,9 @@ DataAtRest.cipherBundleFromBase64 = cipherBundle =>
     assert.ok(typeof cipherBundle.ciphertext === "string", "cipherBundle.ciphertext is not a String");
     assert.ok(typeof cipherBundle.iv === "string", "cipherBundle.iv is not a String");
     return {
-        authTag: Buffer.from(cipherBundle.authTag, "base64"),
-        ciphertext: Buffer.from(cipherBundle.ciphertext, "base64"),
-        iv: Buffer.from(cipherBundle.iv, "base64")
+        authTag: new Buffer(cipherBundle.authTag, "base64"),
+        ciphertext: new Buffer(cipherBundle.ciphertext, "base64"),
+        iv: new Buffer(cipherBundle.iv, "base64")
     };
 };
 

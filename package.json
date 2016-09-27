@@ -3,10 +3,13 @@
   "version": "0.2.0",
   "description": "Encryption utilities for data at rest",
   "scripts": {
+    "assert-aws-lambda-node": "(node -v | grep -q ${npm_package_scriptvars_aws_lambda_node}) || (echo \"Expected node version ${npm_package_scriptvars_aws_lambda_node}, got $(node -v)\" && exit 1)",
     "assert-latest-node": "(node -v | grep -q ${npm_package_scriptvars_latest_node}) || (echo \"Expected node version ${npm_package_scriptvars_latest_node}, got $(node -v)\" && exit 1)",
-    "test": "npm run assert-latest-node && npm list 1>/dev/null && node scripts/test.js"
+    "test": "npm run assert-latest-node && npm list 1>/dev/null && node scripts/test.js",
+    "test-lambda": "npm run assert-aws-lambda-node && npm list 1>/dev/null && node scripts/test.js"
   },
   "scriptvars": {
+    "aws_lambda_node": "v4.3.2",
     "latest_node": "v6.6.0"
   },
   "main": "index.js",
