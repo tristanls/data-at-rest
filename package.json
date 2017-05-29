@@ -1,24 +1,28 @@
 {
-  "name": "data-at-rest",
-  "version": "0.3.0",
-  "description": "Encryption utilities for data at rest",
-  "scripts": {
-    "assert-aws-lambda-node": "(node -v | grep -q ${npm_package_scriptvars_aws_lambda_node}) || (echo \"Expected node version ${npm_package_scriptvars_aws_lambda_node}, got $(node -v)\" && exit 1)",
-    "assert-latest-node": "(node -v | grep -q ${npm_package_scriptvars_latest_node}) || (echo \"Expected node version ${npm_package_scriptvars_latest_node}, got $(node -v)\" && exit 1)",
-    "test": "npm run assert-latest-node && npm list 1>/dev/null && node scripts/test.js",
-    "test-lambda": "npm run assert-aws-lambda-node && npm list 1>/dev/null && node scripts/test.js"
-  },
-  "scriptvars": {
-    "aws_lambda_node": "v4.3.2",
-    "latest_node": "v6.6.0"
-  },
-  "main": "index.js",
-  "devDependencies": {
-    "nodeunit": "0.10.2",
-    "scripts-nodeunit-test": "1.0.1"
-  },
-  "contributors": [
-    "Tristan Slominski <tristan.slominski@gmail.com>"
-  ],
-  "license": "MIT"
+    "name": "data-at-rest",
+    "version": "0.3.0",
+    "description": "Encryption utilities for data at rest",
+    "scripts": {
+        "assert-aws-lambda-node": "(node -v | grep -q ${npm_package_scriptvars_aws_lambda_node}) || (echo \"Expected node version ${npm_package_scriptvars_aws_lambda_node}, got $(node -v)\" && exit 1)",
+        "assert-latest-node": "(node -v | grep -q ${npm_package_scriptvars_latest_node}) || (echo \"Expected node version ${npm_package_scriptvars_latest_node}, got $(node -v)\" && exit 1)",
+        "test": "npm run assert-latest-node && npm list 1>/dev/null && jest",
+        "test-lambda": "npm run assert-aws-lambda-node && npm list 1>/dev/null && jest"
+    },
+    "scriptvars": {
+        "aws_lambda_node": "v6.10",
+        "latest_node": "v7.10.0"
+    },
+    "main": "index.js",
+    "devDependencies": {
+        "jest": "20.0.3"
+    },
+    "contributors": [
+        "Tristan Slominski <tristan.slominski@gmail.com>"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:tristanls/data-at-rest.git"
+    },
+    "dependencies": {}
 }
