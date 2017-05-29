@@ -11,7 +11,7 @@ describe("aad", () =>
                     second: 2,
                     first: 1
                 };
-                expect(DataAtRest.aad(obj).toString("utf8")).toBe(`{"first":1,"second":2}`);
+                expect(DataAtRest.aad(obj).toString("utf8")).toBe(`[["first",1],["second",2]]`);
             }
         );
         it("throws if nested object", () =>

@@ -8,25 +8,7 @@ const DataAtRest = module.exports;
 DataAtRest.ALGORITHM = "aes-256-gcm";
 DataAtRest.IV_LENGTH_IN_BYTES = 12; // 96 bits
 
-DataAtRest.aad = obj =>
-{
-    return new Buffer(
-                JSON.stringify(
-                    Object.keys(obj)
-                        .sort()
-                        .reduce((result, property) =>
-                        {
-                            if (typeof obj[property] == "object")
-                            {
-                                throw new TypeError("DataAtRest.aad() does not accept nested objects.");
-                            }
-                            result[property] = obj[property];
-                            return result;
-                        },
-                        {})
-                ),
-                "utf8");
-};
+DataAtRest.aad = obj => new Buffer(JSON.stringify(DataAtRest.normalizeAad(obj)), "utf8");
 
 DataAtRest.cipherBundleFromBase64 = cipherBundle =>
 {
@@ -81,3 +63,17 @@ DataAtRest.encrypt = (plaintext, aad, key) =>
         iv
     };
 };
+
+DataAtRest.normalizeAad = obj => (
+    Object.keys(obj)
+        .sort()
+        .map(property =>
+            {
+                if (typeof obj[property] == "object")
+                {
+                    throw new TypeError("DataAtRest.normalizeAad() does not accept nested objects.");
+                }
+                return [property, obj[property]];
+            }
+        )
+)

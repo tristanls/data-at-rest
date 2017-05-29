@@ -93,6 +93,7 @@ const retrievedData = {
   * [DataAtRest.cipherBundleToBase64(cipherBundle)](#dataatrestcipherbundletobase64cipherbundle)
   * [DataAtRest.decrypt(cipherBundle, aad, key)](#dataatrestdecryptcipherbundle-aad-key)
   * [DataAtRest.encrypt(plaintext, aad, key)](#dataatrestencryptplaintext-aad-key)
+  * [DataAtRest.normalizeAad(obj)](#dataatrestnormalizeaadobj)
 
 #### DataAtRest.ALGORITHM
 
@@ -162,6 +163,13 @@ Decrypts previously encrypted `cipherBundle` into `plaintext`.
     * `iv`: _Buffer_ Initialization vector.
 
 Encrypts the `plaintext` using specified additional authenticated data (`aad`) and the encryption `key`.
+
+#### DataAtRest.normalizeAad(obj)
+
+  * `obj`: _Object_ An object representing string-to-string map of additional authenticated data.
+  * Return: _Array_ Normalized object in form of sorted array.
+
+Normalizes given additional authenticated data object by sorting it by key and returning an array (the order of which should be preserved by `JSON.stringify` implementations).
 
 ## Releases
 
