@@ -1,6 +1,6 @@
 {
     "name": "data-at-rest",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "Encryption utilities for data at rest",
     "scripts": {
         "assert-aws-lambda-node": "(node -v | grep -q ${npm_package_scriptvars_aws_lambda_node}) || (echo \"Expected node version ${npm_package_scriptvars_aws_lambda_node}, got $(node -v)\" && exit 1)",
