@@ -10,11 +10,11 @@
     },
     "scriptvars": {
         "aws_lambda_node": "v6.10",
-        "latest_node": "v8.4.0"
+        "latest_node": "v9.4.0"
     },
     "main": "index.js",
     "devDependencies": {
-        "jest": "20.0.4"
+        "jest": "22.1.4"
     },
     "contributors": [
         "Tristan Slominski <tristan.slominski@gmail.com>"
